@@ -13,6 +13,8 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.work.one.exception.AccessDeniedExceptionHandler;
+
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages = {"com.work.one.service", "com.work.one.common","com.work.one.util"})
@@ -25,6 +27,12 @@ public class RootConfig {
     @Resource
     private Environment env;
   
+    @Bean 
+    AccessDeniedExceptionHandler accessDeniedExceptionHandler() {
+        AccessDeniedExceptionHandler accessDeniedExceptionHandler = new AccessDeniedExceptionHandler();
+        accessDeniedExceptionHandler.setErrorPage("/error/accessDeniedPage");
+        return accessDeniedExceptionHandler;
+    }
     
     @Bean
     public ResourceBundleMessageSource messageSource() {
