@@ -59,7 +59,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-	
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -76,15 +76,15 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
-		
+
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
-		
+
+
 
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -96,6 +96,13 @@
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>${commons-lang-version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-envers</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
 
 		<dependency>
@@ -157,7 +164,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<configuration>					
+				<configuration>
 					<manifest>
 						<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 					</manifest>
@@ -167,7 +174,7 @@
 							<Specification-Version>${project.version}</Specification-Version>
 							<Implementation-Version>${build.number}</Implementation-Version>
 						</manifestEntries>
-					</archive>				
+					</archive>
 				</configuration>
 			</plugin>
 			<plugin>

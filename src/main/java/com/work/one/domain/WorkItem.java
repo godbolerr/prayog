@@ -15,10 +15,12 @@ import javax.persistence.Version;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.hibernate.envers.Audited;
 
 import com.work.one.common.AppListener;
 
 @MappedSuperclass
+@Audited
 @EntityListeners(AppListener.class)
 public abstract class WorkItem implements Serializable {
 	

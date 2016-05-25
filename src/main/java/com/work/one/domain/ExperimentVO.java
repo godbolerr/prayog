@@ -10,7 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+
 @Entity
+@Audited
 @Table(name = "WO_EXPERIMENT")
 public class ExperimentVO extends WorkItem implements Serializable {
 
