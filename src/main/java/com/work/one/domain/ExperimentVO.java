@@ -35,6 +35,43 @@ public class ExperimentVO extends WorkItem implements Serializable {
 	 * Duration in minutes
 	 */
 	private int duration;
+	
+	/**
+	 * Difficulty level 1- easy , 2-medium , 3- difficult
+	 */
+	private int level;
+	
+	/**
+	 * Prerequisites : Needs to expanded furthter, What experiments should have been performed earlier ?
+	 */
+	private String precondition;
+	
+	/**
+	 * How much it might cost for materials.
+	 */
+	private double moneyValue;
+	
+	/**
+	 * What precautions must be taken ?
+	 */
+	private String safeTyInstructions;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	/**
 	 * To construct an object with default values.
@@ -99,6 +136,38 @@ public class ExperimentVO extends WorkItem implements Serializable {
 	 */
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public String getPrecondition() {
+		return precondition;
+	}
+
+	public void setPrecondition(String precondition) {
+		this.precondition = precondition;
+	}
+
+	public double getMoneyValue() {
+		return moneyValue;
+	}
+
+	public void setMoneyValue(double moneyValue) {
+		this.moneyValue = moneyValue;
+	}
+
+	public String getSafeTyInstructions() {
+		return safeTyInstructions;
+	}
+
+	public void setSafeTyInstructions(String safeTyInstructions) {
+		this.safeTyInstructions = safeTyInstructions;
 	}
 	
 	
