@@ -1,6 +1,6 @@
 'use strict';
 
-expDataApp.controller('adminHomeController', function ($resource,$scope, $rootScope, $routeParams,$location, projectService, dataService, APP_CONSTANT, fileUploadService, ROUTES, Session, envService) {	
+expDataApp.controller('adminHomeController', function ($resource,$scope, $rootScope, $routeParams,$location, entityService, dataService, APP_CONSTANT, ROUTES, Session) {	
 	
 	//Initialize data	
 	$scope.ifSuccess = null;
@@ -16,11 +16,11 @@ expDataApp.controller('adminHomeController', function ($resource,$scope, $rootSc
 	$scope.paginationPage = $routeParams.page;
 	$scope.paginationSize = $routeParams.size;
 	
-	 projectService.getProjectList($scope);	
+	 entityService.getEntities($scope);	
 	 
 	 
 	 //Get Attribute list
-	// projectService.getAttibuteList($scope);	 
+	// entityService.getAttibuteList($scope);	 
 	
 	
 	 /*   $scope.getBlob = function(){
@@ -57,7 +57,7 @@ expDataApp.controller('adminHomeController', function ($resource,$scope, $rootSc
 		   //Set up env
 		   console.log("Selected Projectname	->"+$scope.projects.projectName);
 		   $scope.projects.environments = $scope.projects.selectedEnvironmentList;
-		   projectService.addProjects($scope, $scope.projects);
+		   entityService.addProjects($scope, $scope.projects);
 			
 		 };
 		 
@@ -69,12 +69,12 @@ expDataApp.controller('adminHomeController', function ($resource,$scope, $rootSc
 	 };
 	
 	 $scope.deleteProjects = function (projectList) {			
-		 projectService.deleteProject($scope,projectList);
+		 entityService.deleteProject($scope,projectList);
 	 };
 	 
 	 $scope.updateProject = function (projectList) {	
 		// projectList.description = "After Edit project";
-		// projectService.editProject($scope,projectList);
+		// entityService.editProject($scope,projectList);
 		
 		 Session.setProjectName(projectList.projectName);
 		 dataService.setUpdateProjectDetails(projectList);
@@ -82,27 +82,11 @@ expDataApp.controller('adminHomeController', function ($resource,$scope, $rootSc
 	 };
 	 
 	 $scope.close = function () {
-		 $location.url('/projectsList'); 
+		 $location.url('/entityList'); 
 		// $route.reload();
 	 };
 	 
-	/* $scope.getProjects = function () {	
-		   $scope.projects.status = "Active";
-		   projectService.getProjectList($scope,paginationPage,paginationSize);	
-			
-		 };*/
 	 
-	 $scope.uploadFile = function(){
-         var file = $scope.myFile;
-         
-         console.log('file is ' );
-         console.dir(file);  
-         if(file) {
-        	 fileUploadService.fileUpload($scope, file);
-         } else {
-        	 console.log("Select a file to upload");
-         }
-      };
 
 	
 });

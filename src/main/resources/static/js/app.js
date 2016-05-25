@@ -7,12 +7,12 @@ var expDataApp = angular.module("expDataApp", ['ngResource' , 'ngRoute' , 'auth'
 
 			$routeProvider
 			.when('/', {templateUrl : 'partials/login.html',controller : 'loginCtrl', authorizedRoles: [USER_ROLES.all]})
-			.when(ROUTES.PROJECT_LIST, {templateUrl : 'partials/projects-list.html',controller : 'adminHomeController', authorizedRoles: [USER_ROLES.ROLE_ADMIN,USER_ROLES.ROLE_USER]})	
-			.when(ROUTES.PROJECT_UPDATE, {templateUrl : 'partials/project-edit.html',controller : 'projectController', authorizedRoles: [USER_ROLES.ROLE_ADMIN]})
-			.when(ROUTES.PROJECT_ADD, {templateUrl : 'partials/project-add.html',controller : 'adminHomeController', authorizedRoles: [USER_ROLES.ROLE_ADMIN]})
-			.when(ROUTES.USER_HOME, {templateUrl : 'partials/home-user.html',controller : 'userHomeController', authorizedRoles: [USER_ROLES.ROLE_USER]})
-			.when(ROUTES.LOGIN, {templateUrl : 'partials/login.html',	controller : 'loginCtrl', authorizedRoles: [USER_ROLES.all]})
-			.when(ROUTES.LOGOUT, {controller: 'logoutController', templateUrl: 'partials/login.html', authorizedRoles: [USER_ROLES.all]})
+			.when(ROUTES.ENTITY_LIST, {templateUrl : 'partials/entity-list.html',controller : 'adminHomeController'})	
+			.when(ROUTES.ENTITY_UPDATE, {templateUrl : 'partials/entity-edit.html',controller : 'entityController'})
+			.when(ROUTES.ENTITY_ADD, {templateUrl : 'partials/entity-add.html',controller : 'adminHomeController'})
+			.when(ROUTES.USER_HOME, {templateUrl : 'partials/home-user.html',controller : 'userHomeController'})
+			.when(ROUTES.LOGIN, {templateUrl : 'partials/login.html',	controller : 'loginCtrl'})
+			.when(ROUTES.LOGOUT, {controller: 'logoutController', templateUrl: 'partials/login.html'})
 			.otherwise('/');
 
 			$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -57,17 +57,10 @@ function ($templateCache, $cacheFactory, $rootScope) {
  expDataApp.constant('ROUTES', {
 	  LOGIN: "/login",
 	  LOGOUT: "/logout",
-	  PROJECT_LIST: "/projectsList",
-	  PROJECT_UPDATE: "/updateProject",
-	  PROJECT_ADD: "/addProject",
-		  
-	  USER_HOME: "/userhome",
-
-		 
-
-	   ENV_LIST:"/getEnvList"
-	
-
+	  ENTITY_LIST: "/entityList",
+	  ENTITY_UPDATE: "/updateEntity",
+	  ENTITY_ADD: "/addEntity",		  
+	  USER_HOME: "/userhome"
 
 	});
  
@@ -83,17 +76,12 @@ function ($templateCache, $cacheFactory, $rootScope) {
 				
 			}
 			else {
-			//alert("nextState.authorizedRoles-->"+nextState.authorizedRoles);
-			if (!auth.isAuthorized(nextState.authorizedRoles)) {			
-				event.preventDefault();
-				
 				if (auth.isAuthenticated()) {				
 					 console.log("Autheticated but not authorized");
 				 } else {
 					 console.log("Not Autheticated");		  
 					$location.path('/login');
 				 }			
-			}
 			
 			}
 		});

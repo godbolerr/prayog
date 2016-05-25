@@ -45,6 +45,12 @@ angular.module('auth', []).factory(
 							auth.authenticated = false;
 						}
 						callback && callback(auth.authenticated);
+						
+					  	//Get Home URL
+						homeURL = "/entityList"	;
+						 $location.path(homeURL);
+							 
+
 				
 					}).error(function() {
 						auth.authenticated = false;
