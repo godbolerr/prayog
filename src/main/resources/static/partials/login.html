@@ -1,0 +1,63 @@
+    <div class="container" data-ng-init="credentials.useremail='user@p.com';credentials.password='password'">
+    
+     	<div class="row">
+        
+        <div class="row"  align="center">
+        <div class="col-md-6 col-md-offset-3" align="center">
+          <span> &nbsp; </span>
+        </div>
+        </div>
+        <!--/span-->
+       </div><!--/row-->
+        <div class="row">
+        <div class="well col-md-4 col-md-offset-4" align="center">
+
+           <div class="alert alert-danger" data-ng-if="ifFaliure">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  			 	 {{errorMessage}}
+			</div>
+           
+              <div  data-ng-if="logoutuser" class="alert alert-success">
+               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				      You have been logged out.
+		       </div>
+            <form class="form-horizontal" name="loginForm" data-ng-submit="login()" method="post" novalidate>
+                <fieldset>
+                 <p><span style="color:red"data-ng-show="loginForm.useremail.$dirty && loginForm.useremail.$invalid">
+               		 <span data-ng-show="loginForm.useremail.$error.required">Please enter your Email</span>               	 
+                 </span></p>
+                 
+                 <p><span style="color:red"data-ng-show="loginForm.password.$dirty && loginForm.password.$invalid ">               	
+               		 <span data-ng-show="loginForm.password.$error.required">Please enter your Password</span>
+                 </span></p>
+                 
+                  <p><span style="color:red"data-ng-show="loginForm.projectName.$dirty && loginForm.projectName.$invalid ">               	
+               		 <span data-ng-show="loginForm.projectName.$error.required">Please Select Project</span>
+                 </span></p>
+                    <div class="input-group input-group-md">
+                     
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope red"></i></span>
+                        <input class="form-control"  type="email" id="useremail" name="useremail" placeholder="User Email"  data-ng-model="credentials.useremail" 
+                                     required></input>
+                         
+                    </div>
+                   <br>
+
+                    <div class="input-group input-group-md">
+                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                         <input class="form-control" type="password" id="password"  name="password" placeholder="Password" data-ng-model="credentials.password" 
+                                    required></input>
+                    </div>
+                    
+                    </br>
+                    </br>
+
+                    <div class="form-actions">
+                             <button type="submit" class="btn btn-md btn-primary btn-block" >Login</button>
+                      </div><br>
+                </fieldset>
+            </form>
+        </div>
+                </div>
+            </div>
+       

@@ -1,0 +1,63 @@
+<nav class="navbar navbar-static-top navbar-inverse" role="navigation">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse"
+			data-target="#expdata-navbar">
+			<span class="sr-only"></span> <span class="icon-bar"></span> <span
+				class="icon-bar"></span> <span class="icon-bar"></span>
+		</button>
+		<a
+			href="{{APP_CONSTANT.HASH_VAL}}/{{ROUTES.PROJECT_LIST}}/{{APP_CONSTANT.DEFAULT_PAGINATION_PAGE}}/{{APP_CONSTANT.DEFAULT_PAGINATION_SIZE}}"><img
+			src="img/expLogo.png" style="margin-top: 5px;"></a>
+	</div>
+
+
+	<div class="collapse navbar-collapse" id="expdata-navbar">
+		<div class="navbar-inner" >
+			<ul class="nav navbar-nav  pull-right" id="menu" class="dropdown-menu" data-hover="dropdown" >
+			 <li> <a href="{{APP_CONSTANT.HASH_VAL}}{{ROUTES.PROJECT_LIST}}"><i class="fa fa-home fa-lg" aria-hidden="true" ></i></a></li>
+				
+				
+
+
+			<li>
+				<!-- user dropdown starts -->
+
+				<div class="btn-group pull-right">
+					<button class="btn btn-default dropdown-toggle"
+						data-toggle="dropdown">
+						<i class="glyphicon glyphicon-user"></i><span
+							class="hidden-sm hidden-xs"> {{userName}}</span> <span
+							class="caret"></span>
+					</button>
+
+					<ul class="dropdown-menu">
+						<li><p>
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-envelope green"> {{userEmail}}</i></span>
+							</p></li>
+						<li><a href="">Profile</a></li>
+						<li class="divider"></li>
+						<li><a href="">Preferences</a></li>
+						<!-- <li class="divider"></li>
+						<li><a href="{{APP_CONSTANT.HASH_VAL}}{{ROUTES.ATTRIBUTE_RULE_EDITOR}}">Rule Editor</a></li> -->
+						<!-- <li class="divider"></li>
+						<li><a href="">User</a></li> -->
+						<!-- <li class="divider"></li>
+						<li><a href="">Role</a></li>
+						<li class="divider"></li>
+						<li><a href="{{APP_CONSTANT.HASH_VAL}}{{ROUTES.ENV_LIST}}">Environment SetUp</a></li> -->
+						<li class="divider"></li>
+						<li><a href="{{APP_CONSTANT.HASH_VAL}}{{ROUTES.LOGOUT}}">Logout</a></li>
+					</ul>
+
+
+
+
+
+				</div> <!-- user dropdown ends -->
+
+			</li>
+			</ul>
+		</div>
+	</div>
+</nav>
